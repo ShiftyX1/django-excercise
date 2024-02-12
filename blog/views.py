@@ -5,26 +5,7 @@ def index(request):
     return HttpResponse("<h2>Главная</h2>")
 
 
-def about(request, name, age):
-    return HttpResponse(f"""
-    <h2>О пользователе</h2>
-    <p>Имя: {name}</p>
-    <p>Возраст: {age}</p>
-    """)
-
-
-def contact(request):
-    return HttpResponse("<h2>Контакты</h2>")
-
-
-def forbidden_page(request):
-    return HttpResponseForbidden("")
-
-
-def user(request, name="Undefined", age=0):
-    return HttpResponse(f"""
-    <h2 align="center">Пользователь</h2>
-    <ul>
-    <li>Имя: {name}</li>
-    <li>Возраст: {age}</li>
-    </ul>""")
+def user(request):
+    age = request.GET.get("age")
+    name = request.GET.get("name")
+    return HttpResponse(f"<h2>Имя: {name}, Возраст: {age}</h2>")
