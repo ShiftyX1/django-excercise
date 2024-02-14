@@ -1,8 +1,9 @@
 from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import render
+from django.template.response import TemplateResponse
 
 def index(request):
-    return HttpResponse("<h2>Главная</h2>")
+    return TemplateResponse(request, 'blog/index.html')
 
 
 def user(request):
