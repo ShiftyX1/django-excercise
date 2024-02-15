@@ -2,8 +2,11 @@ from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import render
 from django.template.response import TemplateResponse
 
+
 def index(request):
-    return TemplateResponse(request, 'blog/index.html')
+    cat = ["Python", "Java", "JS", "Go", "C#", "Kotlin", "C++"]
+    empty_list = []
+    return render(request, "blog/index.html", context={"cat": cat})
 
 
 def user(request):
